@@ -10,6 +10,5 @@ import WithRender from './home.html';
 })
 
 export default class Home extends Vue {
-  // public imageUrl: string = '/img/logo.png';
-  public title: string = 'Welcome to Mazes w/o Monsters!';
+  public title: string = 'Mazes w/o Monsters!';
 }

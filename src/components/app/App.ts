@@ -1,6 +1,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 import WithRender from './app.html';
-import './styles/main.scss';
+import '@/styles/main.scss';
 
 @WithRender
 @Component
