@@ -2,13 +2,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   lintOnSave: false,
-  css: {
-    loaderOptions: {
-      sass: {
-        data: `@import "@/styles/main.scss";`
-      }
-    }
-  },
   configureWebpack: {
     module: {
       rules: [
@@ -24,9 +17,9 @@ module.exports = {
             'css-loader',
             'sass-loader',
           ],
-      },
-    ]
-  },
+        },
+      ]
+    },
     plugins: [
       new MiniCssExtractPlugin({}),
     ],

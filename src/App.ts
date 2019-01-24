@@ -4,4 +4,4 @@ import './styles/main.scss';
 
 @WithRender
 @Component
-export default class HelloWorld extends Vue {}
+export default class App extends Vue {}
