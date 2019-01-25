@@ -4,8 +4,8 @@ import WithRender from './home.html';
 
 @WithRender
 @Component({
-  components: {
-    // HelloWorld,
+  props: {
+    maze: Object,
   },
 })
 
