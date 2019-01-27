@@ -1,10 +1,12 @@
 <div class="node" :class="{
-  aboveBorder: hasAboveBorder(),
-  rightBorder: hasRightBorder(),
-  belowBorder: hasBelowBorder(),
-  leftBorder: hasLeftBorder(),
-  rightPadding: !hasRightBorder(),
-  belowPadding: !hasBelowBorder(),
-}">
+    aboveBorder: hasAboveBorder(),
+    rightBorder: hasRightBorder(),
+    belowBorder: hasBelowBorder(),
+    leftBorder: hasLeftBorder(),
+    rightPadding: !hasRightBorder(),
+    belowPadding: !hasBelowBorder(),
+  }">
   <div v-if="needsCorner()" class="bottomRightCorner"></div>
+  <div v-if="hasPlayer()" class="player"></div>
+  <div v-if="hasExit()" class="exit"></div>
 </div>

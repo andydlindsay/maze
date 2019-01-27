@@ -3,8 +3,8 @@ import * as helpers from '../helpers/helpers';
 
 export default class Maze {
 
-  public maxX: number = 24;
-  public maxY: number = 18;
+  public maxX: number = 44;
+  public maxY: number = 31;
   public nodes: { [key: string]: Node } = {};
 
   constructor() {

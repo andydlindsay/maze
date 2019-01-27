@@ -18,19 +18,21 @@ import WithRender from './node.html';
       }
     },
     hasRightBorder() {
-      if (!this.$props.node.right) {
-        return true;
-      }
+      return !this.$props.node.right;
     },
     hasBelowBorder() {
-      if (!this.$props.node.below) {
-        return true;
-      }
+      return !this.$props.node.below;
     },
     needsCorner() {
       if (this.$props.node.right && this.$props.node.below) {
         return true;
       }
+    },
+    hasPlayer() {
+      return this.$props.node.player;
+    },
+    hasExit() {
+      return this.$props.node.exit;
     },
   },
 })
