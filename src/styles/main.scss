@@ -3,6 +3,7 @@ $borderWidth: 0.25rem;
 $nodeSide: 15px;
 $playerColor: red;
 $exitColor: black;
+$nodeBackground: lightcyan;
 
 h3 {
   margin: 40px 0 0;
@@ -49,7 +50,7 @@ a {
 }
 
 .node {
-  background-color: lightcyan;
+  background-color: $nodeBackground;
   width: $nodeSide;
   height: $nodeSide;
   display: inline-block;

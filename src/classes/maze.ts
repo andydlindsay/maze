@@ -3,9 +3,12 @@ import * as helpers from '../helpers/helpers';
 
 export default class Maze {
 
+  // extreme 44 x 32; hard 33 x 24; normal 22 x 16; easy 11 x 8
   public maxX: number = 44;
   public maxY: number = 32;
   public nodes: { [key: string]: Node } = {};
+  public player: string = '';
+  public exit: string = '';
 
   constructor() {
     this.genNewMaze(this.maxX, this.maxY);
@@ -70,17 +73,33 @@ export default class Maze {
       }
     }
 
-    // choose start and exit
-    const playerStart: string = helpers.randomCell(this.maxX, this.maxY);
-    let exit: string = '';
+    // choose player start location and exit location
+    this.player = helpers.randomCell(this.maxX, this.maxY);
     while (true) {
-      exit = helpers.randomCell(this.maxX, this.maxY);
-      if (exit !== playerStart) {
+      this.exit = helpers.randomCell(this.maxX, this.maxY);
+      if (this.exit !== this.player) {
         break;
       }
     }
-    this.nodes[playerStart].player = true;
-    this.nodes[exit].exit = true;
+    this.nodes[this.player].player = true;
+    this.nodes[this.exit].exit = true;
+  }
+
+  public movePlayer(moveDirection: string): boolean {
+    const currentNode: Node = this.nodes[this.player];
+    const possibleNode: Node | null = currentNode[moveDirection];
+    if (possibleNode) {
+      // valid move
+      currentNode.player = false;
+      possibleNode.player = true;
+      this.player = possibleNode.id;
+      return true;
+    }
+    return false;
+  }
+
+  public isGameOver(): boolean {
+    return this.player === this.exit;
   }
 
 }
