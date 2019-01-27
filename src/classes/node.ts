@@ -6,6 +6,9 @@ export default class Node {
   public below: Node | null = null;
   public left: Node | null = null;
   public visited: boolean = false;
+  public id: string;
 
-  constructor(public x: number, public y: number) { }
+  constructor(public x: number, public y: number) {
+    this.id = `${x},${y}`;
+  }
 }
