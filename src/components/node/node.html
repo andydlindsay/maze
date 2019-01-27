@@ -3,9 +3,8 @@
   rightBorder: hasRightBorder(),
   belowBorder: hasBelowBorder(),
   leftBorder: hasLeftBorder(),
-  abovePadding: !hasAboveBorder(),
   rightPadding: !hasRightBorder(),
   belowPadding: !hasBelowBorder(),
-  leftPadding: !hasLeftBorder()
 }">
+  <div v-if="needsCorner()" class="bottomRightCorner"></div>
 </div>

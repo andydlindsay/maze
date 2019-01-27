@@ -27,6 +27,11 @@ import WithRender from './node.html';
         return true;
       }
     },
+    needsCorner() {
+      if (this.$props.node.right && this.$props.node.below) {
+        return true;
+      }
+    },
   },
 })
 

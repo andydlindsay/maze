@@ -1,6 +1,9 @@
 <div class="home">
   <h1>{{ title }}</h1>
   <div id="gameboard">
-    <Node v-for="node in maze.nodes" :key="node.id" :node="node"></Node>
+    <span v-for="node in maze.nodes" :key="node.id">
+      <br v-if="node.x % maze.maxX === 0" />
+      <Node :node="node"></Node>
+    </span>
   </div>
 </div>
