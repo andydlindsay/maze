@@ -1,3 +1,6 @@
+$borderColor: #2c3e50;
+$borderWidth: 1rem;
+
 h3 {
   margin: 40px 0 0;
 }
@@ -35,8 +38,48 @@ a {
   }
 }
 
+#gameboard {
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+  line-height: 1.25;
+}
+
 .node {
   background-color: lightcyan;
   width: 50px;
   height: 50px;
+  display: inline-block;
+}
+
+.aboveBorder {
+  border-top: $borderWidth solid $borderColor;
+}
+
+.rightBorder {
+  border-right: $borderWidth solid $borderColor;
+}
+
+.belowBorder {
+  border-bottom: $borderWidth solid $borderColor;
+}
+
+.leftBorder {
+  border-left: $borderWidth solid $borderColor;
+}
+
+.abovePadding {
+  padding-top: $borderWidth;
+}
+
+.rightPadding {
+  padding-right: $borderWidth;
+}
+
+.belowPadding {
+  padding-bottom: $borderWidth;
+}
+
+.leftPadding {
+  padding-left: $borderWidth;
 }

@@ -4,7 +4,7 @@ import * as helpers from '../helpers/helpers';
 export default class Maze {
 
   public maxX: number = 10;
-  public maxY: number = 10;
+  public maxY: number = 8;
   public nodes: { [key: string]: Node } = {};
 
   constructor() {
