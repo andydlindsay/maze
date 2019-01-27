@@ -11,18 +11,18 @@ export default class Maze {
     this.genNewMaze(this.maxX, this.maxY);
   }
 
-  public genNewMaze(maxX: number, maxY: number) {
-    this.maxX = maxX;
-    this.maxY = maxY;
+  public genNewMaze(maxX?: number, maxY?: number) {
+    this.maxX = maxX || this.maxX;
+    this.maxY = maxY || this.maxY;
 
-    const startingCoords: string = helpers.randomStartingCell(maxX, maxY);
+    const startingCoords: string = helpers.randomStartingCell(this.maxX, this.maxY);
     const stack: string[] = [];
     let visitedNodeCount: number = 0;
 
     // initialize nodes
     this.nodes = {};
-    for (let i: number = 0; i < maxY; i++) {
-      for (let j: number = 0; j < maxX; j++) {
+    for (let i: number = 0; i < this.maxY; i++) {
+      for (let j: number = 0; j < this.maxX; j++) {
         this.nodes[`${j},${i}`] = new Node(j, i);
       }
     }
@@ -32,8 +32,8 @@ export default class Maze {
     currentNode.visited = true;
     visitedNodeCount++;
 
-    while (visitedNodeCount < maxX * maxY) {
-      let neighbours: Array<[string, string]> = helpers.findNeighbours(stack[stack.length - 1], maxX, maxY);
+    while (visitedNodeCount < this.maxX * this.maxY) {
+      let neighbours: Array<[string, string]> = helpers.findNeighbours(stack[stack.length - 1], this.maxX, this.maxY);
       neighbours = neighbours.filter((elem) => {
         return !this.nodes[elem[0]].visited;
       });

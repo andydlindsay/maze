@@ -2,7 +2,7 @@
   <h1>{{ title }}</h1>
   <div id="gameboard">
     <span v-for="node in maze.nodes" :key="node.id">
-      <br v-if="node.x % maze.maxX === 0" />
+      <br v-if="node.id !== '0,0' && node.x % maze.maxX === 0" />
       <Node :node="node"></Node>
     </span>
   </div>
