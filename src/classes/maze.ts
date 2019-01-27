@@ -4,7 +4,7 @@ import * as helpers from '../helpers/helpers';
 export default class Maze {
 
   public maxX: number = 44;
-  public maxY: number = 31;
+  public maxY: number = 32;
   public nodes: { [key: string]: Node } = {};
 
   constructor() {
@@ -15,7 +15,7 @@ export default class Maze {
     this.maxX = maxX || this.maxX;
     this.maxY = maxY || this.maxY;
 
-    const startingCoords: string = helpers.randomStartingCell(this.maxX, this.maxY);
+    const startingCoords: string = helpers.randomCell(this.maxX, this.maxY);
     const stack: string[] = [];
     let visitedNodeCount: number = 0;
 
@@ -71,10 +71,10 @@ export default class Maze {
     }
 
     // choose start and exit
-    const playerStart: string = helpers.randomStartingCell(this.maxX, this.maxY);
+    const playerStart: string = helpers.randomCell(this.maxX, this.maxY);
     let exit: string = '';
     while (true) {
-      exit = helpers.randomStartingCell(this.maxX, this.maxY);
+      exit = helpers.randomCell(this.maxX, this.maxY);
       if (exit !== playerStart) {
         break;
       }
