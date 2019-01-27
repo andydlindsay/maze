@@ -69,6 +69,18 @@ export default class Maze {
         visitedNodeCount++;
       }
     }
+
+    // choose start and exit
+    const playerStart: string = helpers.randomStartingCell(this.maxX, this.maxY);
+    let exit: string = '';
+    while (true) {
+      exit = helpers.randomStartingCell(this.maxX, this.maxY);
+      if (exit !== playerStart) {
+        break;
+      }
+    }
+    this.nodes[playerStart].player = true;
+    this.nodes[exit].exit = true;
   }
 
 }

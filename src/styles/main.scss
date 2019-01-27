@@ -1,6 +1,8 @@
 $borderColor: #2c3e50;
 $borderWidth: 0.25rem;
 $nodeSide: 15px;
+$playerColor: red;
+$exitColor: black;
 
 h3 {
   margin: 40px 0 0;
@@ -93,4 +95,21 @@ a {
 	background-color: $borderColor;
 	bottom: 0;
 	right: 0;
+}
+
+.player {
+  background-color: $playerColor;
+}
+
+.small-circle {
+  position: absolute;
+  width: $borderWidth * 3;
+  height: $borderWidth * 3;
+  border-radius: 50%;
+  left: 5%;
+  top: 5%;
+}
+
+.exit {
+  background-color: $exitColor;
 }
