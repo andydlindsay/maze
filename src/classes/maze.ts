@@ -3,20 +3,38 @@ import * as helpers from '../helpers/helpers';
 
 export default class Maze {
 
-  // extreme 44 x 32; hard 33 x 24; normal 22 x 16; easy 11 x 8
   public maxX: number = 22;
   public maxY: number = 16;
   public nodes: { [key: string]: Node } = {};
   public player: string = '';
   public exit: string = '';
+  public difficulty: string = 'normal';
 
   constructor() {
-    this.genNewMaze(this.maxX, this.maxY);
+    this.genNewMaze(this.difficulty);
   }
 
-  public genNewMaze(maxX?: number, maxY?: number) {
-    this.maxX = maxX || this.maxX;
-    this.maxY = maxY || this.maxY;
+  public genNewMaze(difficulty?: string) {
+    if (difficulty) {
+      switch (difficulty) {
+        case 'easy':
+          this.maxX = 11;
+          this.maxY = 8;
+          break;
+        case 'normal':
+          this.maxX = 22;
+          this.maxY = 16;
+          break;
+        case 'hard':
+          this.maxX = 33;
+          this.maxY = 24;
+          break;
+        case 'extreme':
+          this.maxX = 44;
+          this.maxY = 32;
+          break;
+      }
+    }
 
     const startingCoords: string = helpers.randomCell(this.maxX, this.maxY);
     const stack: string[] = [];
