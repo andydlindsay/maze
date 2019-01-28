@@ -57,6 +57,11 @@ a {
   position: relative;
 }
 
+.home:focus {
+  outline: none;
+  border: none;
+}
+
 .aboveBorder {
   border-top: $borderWidth solid $borderColor;
 }
