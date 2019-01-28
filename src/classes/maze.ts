@@ -18,8 +18,8 @@ export default class Maze {
     if (difficulty) {
       switch (difficulty) {
         case 'easy':
-          this.maxX = 11;
-          this.maxY = 8;
+          this.maxX = 15;
+          this.maxY = 11;
           break;
         case 'normal':
           this.maxX = 22;
@@ -27,7 +27,7 @@ export default class Maze {
           break;
         case 'hard':
           this.maxX = 33;
-          this.maxY = 24;
+          this.maxY = 22;
           break;
         case 'extreme':
           this.maxX = 44;

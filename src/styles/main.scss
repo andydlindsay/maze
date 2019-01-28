@@ -1,9 +1,12 @@
 $borderColor: #2c3e50;
-$borderWidth: 0.5rem;
-$nodeSide: 30px;
 $playerColor: red;
 $exitColor: black;
 $nodeBackground: lightcyan;
+
+:root {
+  --borderWidth: 0.5rem;
+  --nodeSide: 28px;
+}
 
 h3 {
   margin: 40px 0 0;
@@ -51,8 +54,8 @@ a {
 
 .node {
   background-color: $nodeBackground;
-  width: $nodeSide;
-  height: $nodeSide;
+  width: var(--nodeSide);
+  height: var(--nodeSide);
   display: inline-block;
   position: relative;
 }
@@ -63,41 +66,41 @@ a {
 }
 
 .aboveBorder {
-  border-top: $borderWidth solid $borderColor;
+  border-top: var(--borderWidth) solid $borderColor;
 }
 
 .rightBorder {
-  border-right: $borderWidth solid $borderColor;
+  border-right: var(--borderWidth) solid $borderColor;
 }
 
 .belowBorder {
-  border-bottom: $borderWidth solid $borderColor;
+  border-bottom: var(--borderWidth) solid $borderColor;
 }
 
 .leftBorder {
-  border-left: $borderWidth solid $borderColor;
+  border-left: var(--borderWidth) solid $borderColor;
 }
 
 .abovePadding {
-  padding-top: $borderWidth;
+  padding-top: var(--borderWidth);
 }
 
 .rightPadding {
-  padding-right: $borderWidth;
+  padding-right: var(--borderWidth);
 }
 
 .belowPadding {
-  padding-bottom: $borderWidth;
+  padding-bottom: var(--borderWidth);
 }
 
 .leftPadding {
-  padding-left: $borderWidth;
+  padding-left: var(--borderWidth);
 }
 
 .bottomRightCorner {
 	position: absolute;
-	width: $borderWidth;
-	height: $borderWidth;
+	width: var(--borderWidth);
+	height: var(--borderWidth);
 	background-color: $borderColor;
 	bottom: 0;
 	right: 0;
@@ -109,8 +112,8 @@ a {
 
 .small-circle {
   position: absolute;
-  width: $borderWidth * 3;
-  height: $borderWidth * 3;
+  width: calc(var(--borderWidth) * 3);
+  height: calc(var(--borderWidth) * 3);
   border-radius: 50%;
   left: 5%;
   top: 5%;
