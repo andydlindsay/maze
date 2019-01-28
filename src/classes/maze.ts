@@ -4,8 +4,8 @@ import * as helpers from '../helpers/helpers';
 export default class Maze {
 
   // extreme 44 x 32; hard 33 x 24; normal 22 x 16; easy 11 x 8
-  public maxX: number = 44;
-  public maxY: number = 32;
+  public maxX: number = 22;
+  public maxY: number = 16;
   public nodes: { [key: string]: Node } = {};
   public player: string = '';
   public exit: string = '';
