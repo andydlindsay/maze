@@ -1,4 +1,4 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   lintOnSave: false,
@@ -12,16 +12,9 @@ module.exports = {
         },
         {
           test: /\.(s*)css$/, 
-          use: [
-            MiniCssExtractPlugin.loader,
-            'css-loader',
-            'sass-loader',
-          ],
+          loader: "sass-loader"
         },
       ]
     },
-    plugins: [
-      new MiniCssExtractPlugin({}),
-    ],
   }
 }

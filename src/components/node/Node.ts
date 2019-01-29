@@ -34,6 +34,9 @@ import WithRender from './node.html';
     hasExit() {
       return this.$props.node.exit;
     },
+    beenVisited() {
+      return this.$props.node.visited;
+    },
   },
 })
 

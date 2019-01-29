@@ -102,6 +102,13 @@ export default class Maze {
     }
     this.nodes[this.player].player = true;
     this.nodes[this.exit].exit = true;
+
+    // set visited to false for each node
+    for (const key in this.nodes) {
+      if (this.nodes.hasOwnProperty(key)) {
+        this.nodes[key].visited = false;
+      }
+    }
   }
 
   public movePlayer(moveDirection: string): boolean {
@@ -110,6 +117,7 @@ export default class Maze {
     if (possibleNode) {
       // valid move
       currentNode.player = false;
+      currentNode.visited = true;
       possibleNode.player = true;
       this.player = possibleNode.id;
       return true;
