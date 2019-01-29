@@ -4,48 +4,77 @@ import Component from 'vue-class-component';
 import Node from '@/components/node/Node.ts'; // @ is an alias to /src
 import WithRender from './home.html';
 import Maze from '@/classes/maze';
+import ButtonBar from '@/components/button-bar/ButtonBar';
 
 @WithRender
 @Component({
   props: {
-    maze: Object,
+    maze: Maze,
   },
   components: {
     Node,
+    ButtonBar,
   },
 })
 
 export default class Home extends Vue {
   public title: string = 'Mazes w/o Monsters!';
+  public difficulty: string = 'normal';
 
-  public mounted() {
+  private difficultyOptions: { [key: string]: { borderWidth: string, nodeSide: string, title: string } } = {
+    easy: {
+      borderWidth: '0.625rem',
+      nodeSide: '35px',
+      title: 'easy',
+    },
+    normal: {
+      borderWidth: '0.5rem',
+      nodeSide: '28px',
+      title: 'normal',
+    },
+    hard: {
+      borderWidth: '0.375rem',
+      nodeSide: '21px',
+      title: 'hard',
+    },
+    extreme: {
+      borderWidth: '0.25rem',
+      nodeSide: '14px',
+      title: 'extreme',
+    },
+  };
+
+  public created() {
     window.addEventListener('keypress', this.handleKeypress);
+  }
+
+  public handleDifficultyClick(difficulty: string) {
+    this.difficulty = difficulty;
+    const options = this.difficultyOptions[this.difficulty];
+
+    this.$props.maze = new Maze(this.difficulty);
   }
 
   public handleKeypress(event: any) {
     let direction: string = '';
-    switch (event.key) {
+    switch (event.key.toLowerCase()) {
       case 'w':
-      case 'W':
         direction = 'above';
         break;
       case 'a':
-      case 'A':
         direction = 'left';
         break;
       case 's':
-      case 'S':
         direction = 'below';
         break;
       case 'd':
-      case 'D':
         direction = 'right';
         break;
     }
     this.$props.maze.movePlayer(direction);
     if (this.$props.maze.isGameOver()) {
       alert('you win!');
-      this.$props.maze = new Maze();
+      this.$props.maze = new Maze(this.difficulty);
     }
   }
 }

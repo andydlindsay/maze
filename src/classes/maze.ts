@@ -10,7 +10,8 @@ export default class Maze {
   public exit: string = '';
   public difficulty: string = 'normal';
 
-  constructor() {
+  constructor(difficulty?: string) {
+    this.difficulty = difficulty || this.difficulty;
     this.genNewMaze(this.difficulty);
   }
 
