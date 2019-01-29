@@ -3,6 +3,9 @@ import App from '@/components/app/App.ts';
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
+import Element from 'element-ui';
+
+Vue.use(Element);
 
 Vue.config.productionTip = false;
 

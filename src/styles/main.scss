@@ -52,6 +52,15 @@ a {
   line-height: 1.25;
 }
 
+#buttonBar {
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .node {
   background-color: $nodeBackground;
   width: var(--nodeSide);
