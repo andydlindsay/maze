@@ -27,8 +27,8 @@ export default class Maze {
           this.maxY = 16;
           break;
         case 'hard':
-          this.maxX = 33;
-          this.maxY = 22;
+          this.maxX = 29;
+          this.maxY = 21;
           break;
         case 'extreme':
           this.maxX = 44;

@@ -8,9 +8,6 @@ import ButtonBar from '@/components/button-bar/ButtonBar';
 
 @WithRender
 @Component({
-  props: {
-    maze: Maze,
-  },
   components: {
     Node,
     ButtonBar,
@@ -18,6 +15,7 @@ import ButtonBar from '@/components/button-bar/ButtonBar';
 })
 
 export default class Home extends Vue {
+  public maze: Maze = new Maze();
   public title: string = 'Mazes w/o Monsters!';
   public difficulty: string = 'normal';
 
@@ -51,8 +49,9 @@ export default class Home extends Vue {
   public handleDifficultyClick(difficulty: string) {
     this.difficulty = difficulty;
     const options = this.difficultyOptions[this.difficulty];
-
-    this.$props.maze = new Maze(this.difficulty);
+    document.documentElement.style.setProperty('--borderWidth', options.borderWidth);
+    document.documentElement.style.setProperty('--nodeSide', options.nodeSide);
+    this.maze = new Maze(this.difficulty);
   }
 
   public handleKeypress(event: any) {
@@ -71,10 +70,10 @@ export default class Home extends Vue {
         direction = 'right';
         break;
     }
-    this.$props.maze.movePlayer(direction);
-    if (this.$props.maze.isGameOver()) {
+    this.maze.movePlayer(direction);
+    if (this.maze.isGameOver()) {
       alert('you win!');
-      this.$props.maze = new Maze(this.difficulty);
+      this.maze = new Maze(this.difficulty);
     }
   }
 }
