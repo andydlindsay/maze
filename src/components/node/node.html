@@ -1,13 +1,13 @@
 <div class="node" :class="{
-    aboveBorder: hasAboveBorder(),
-    rightBorder: hasRightBorder(),
-    belowBorder: hasBelowBorder(),
-    leftBorder: hasLeftBorder(),
-    rightPadding: !hasRightBorder(),
-    belowPadding: !hasBelowBorder(),
+    aboveBorder: node.y === 0,
+    leftBorder: node.x === 0,
+    rightBorder: !node.right,
+    belowBorder: !node.below,
+    rightPadding: !!node.right,
+    belowPadding: !!node.below,
   }">
   <div v-if="needsCorner()" class="bottomRightCorner"></div>
-  <div v-if="hasPlayer()" class="small-circle player"></div>
-  <div v-if="hasExit()" class="small-circle exit"></div>
-  <div v-if="beenVisited()" class="tiny-circle"></div>
+  <div v-if="node.player" class="small-circle player"></div>
+  <div v-if="node.exit" class="small-circle exit"></div>
+  <div v-if="node.visited" class="tiny-circle"></div>
 </div>
